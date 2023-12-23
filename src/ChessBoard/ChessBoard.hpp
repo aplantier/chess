@@ -2,7 +2,10 @@
 #define CHESSBOARD_HPP
 #include <optional>
 #include <iostream>
-#include <unordered_map>
+#include <vector>
+
+
+
 #define BOARD_SIZE 8
 #define A 0
 #define B 1
@@ -19,16 +22,35 @@
 #define BISHOP 	3 
 #define KNIGHT	4
 #define PAWN	5
-
-class Piece {
+#define WHITE true
+#define BLACK false 
+class Player;
+struct Position{
+	int x; 
+	int y;
+}; 
+struct Piece {
+	public:
 	char type_;
 	bool color_;
+	Position pos_;
+	Piece(int type,bool color): type_(type), color_(color){
+		pos_.x=-1;
+		pos_.y=-1;
+	};
 }; 
 class ChessBoard{
 
 	std::optional<Piece> board_[BOARD_SIZE][BOARD_SIZE];
+	std::pair<Player*,std::vector<Piece*>> player1_;
+	std::pair<Player*,std::vector<Piece*>> player2_;
 	public:
 	ChessBoard();
 	~ChessBoard() = default;
+	static Piece pieceFactory(char piece, bool color);
+	void setupGame(); 
+ const std::optional<Piece> *  getTileContent(int i,int j) const;
+void createKing();
+
 };
 #endif 

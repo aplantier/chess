@@ -1,7 +1,8 @@
 #ifndef GRAPHIC_ENGINE_HPP
 #define GRAPHIC_ENGINE_HPP
-#define BOARD_SIZE 8
 #include"../ChessBoard/ChessBoard.hpp"
+
+#define BOARD_SIZE 8
 
 class GraphicEngine{
 
@@ -20,6 +21,7 @@ class GraphicEngine{
 
 	public:
 	void drawBoard(const ChessBoard & board);
+	void drawPiece(const Piece *piece);
 
 };
 

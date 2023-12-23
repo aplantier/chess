@@ -1,7 +1,13 @@
 #ifndef GAME_ENGINE_HPP
 #define GAME_ENGINE_HP
 #include <iostream>
+#include <string>
 #include "../ChessBoard/ChessBoard.hpp"
+
+class Player{
+	std::string name_;
+};
+
 
 class GameEngine {
 	GameEngine()	=default;
