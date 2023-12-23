@@ -42,13 +42,13 @@ struct Piece {
 class ChessBoard{
 
 	std::optional<Piece> board_[BOARD_SIZE][BOARD_SIZE];
-	std::pair<Player*,std::vector<Piece*>> player1_;
-	std::pair<Player*,std::vector<Piece*>> player2_;
+	std::pair<Player*,std::vector<Piece*>> playerWhite_;
+	std::pair<Player*,std::vector<Piece*>> playerBlack_;
 	public:
 	ChessBoard();
 	~ChessBoard() = default;
 	static Piece pieceFactory(char piece, bool color);
-	void setupGame(); 
+	void setupGame(Player *white, Player *black); 
  const std::optional<Piece> *  getTileContent(int i,int j) const;
 void createKing();
 
